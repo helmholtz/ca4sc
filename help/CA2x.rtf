@@ -1,18 +1,16 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
-{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Monaco;
-}
-{\colortbl;\red255\green255\blue255;\red0\green77\blue204;\red0\green0\blue0;\red204\green0\blue102;
-\red96\green96\blue96;}
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green77\blue204;\red204\green0\blue102;\red96\green96\blue96;
+\red0\green0\blue0;\red96\green96\blue96;}
 \deftab560
-\pard\pardeftab560\ql\qnatural
+\pard\pardeftab560
 
-\f0\fs140 \cf2 CA2x
-\f1\fs24 \cf3 \
-\pard\pardeftab560\ql\qnatural
+\f0\i\b\fs140 \cf2 CA2x\
+\pard\pardeftab560
 
-\b \cf3 *ar(smprt, smpwd, rule, seed, trig, mul, add) 
-\b0 \cf4 // yet experimental! loud!\cf3 \
-ugen one-dimensional binary states cellular automaton (\cf5 2 \cf3 neighbours configuration). \
+\i0\fs24 \cf0 *ar(smprt, smpwd, rule, seed, trig, mul, add) 
+\b0 \cf3 // yet experimental! loud!\cf0 \
+ugen one-dimensional binary states cellular automaton (\cf4 2 \cf0 neighbours configuration). \
 interprets the binary lattice as floating-point sample values.\
 cubic-interpolation.\
 \
@@ -24,47 +22,20 @@ cubic-interpolation.\
 \b0  	lattice size\
 
 \b rule	
-\b0 	\cf5 "00000000-FFFFFFFF"\cf3 \
-\pard\pardeftab560\ql\qnatural
+\b0 	\cf4 "00000000-FFFFFFFF"\cf0 \
+\pard\pardeftab560
 
-\b \cf4 //seed
-\b0 	seeding ( random if 0, otherwise translate integers into binary )\cf3 \
-\pard\pardeftab560\ql\qnatural
-\cf4 //		currently omitted, whatever number provided, the ugen randomise the whole lattice\cf3 \
+\b \cf5 seed
+\b0 	seeding (random if \cf6 0\cf5 , otherwise translate integers into binary)\
+\pard\pardeftab560
 
-\b trig	
+\b \cf0 trig	
 \b0 	retrigger\
-\pard\pardeftab560\ql\qnatural
 
-\f2\fs18 \cf3 \
+\f1\fs18 \
+\pard\pardeftab560
+\cf0 s.boot;\
+r = \cf2 Pca\cf0 .r2;\cf3 //29 preset rules\cf0 \
 \
-r = \cf2 CARules\cf3 .new;\
-r.ca2ref.size; \cf4 // 29 rules examined so far...\cf3 \
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 1\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 2\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 3\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 4\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 5\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 6\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 7\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 8\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 9\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 10\cf3 ], \cf2 MouseX\cf3 .kr(\cf5 1\cf3 , \cf5 255\cf3 ), \cf2 Impulse\cf3 .kr(\cf5 5\cf3 )).clip2 * \cf5 0.3 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 11\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 12\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 13\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 14\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 15\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 16\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 17\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 18\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 19\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 20\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 10\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 21\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 22\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 23\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 24\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 25\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 26\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 27\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;\
-\{ \cf2 CA2x\cf3 .ar(\cf5 44100\cf3 /\cf5 3\cf3 , \cf2 MouseY\cf3 .kr(\cf5 16\cf3 , \cf5 255\cf3 ), r.ca2ref[\cf5 28\cf3 ], \cf5 0\cf3 , \cf2 Impulse\cf3 .kr(\cf5 7\cf3 )).clip2 * \cf5 0.1 \cf3 \}.play;}
+\{ \cf2 CA2\cf0 .ar(\cf4 22000\cf0 , \cf2 MouseY\cf0 .kr(\cf4 16\cf0 , \cf4 200\cf0 ), r[\cf4 8\cf0 ], \cf2 MouseX\cf0 .kr(\cf4 0\cf0 , \cf4 255\cf0 ), \cf2 Impulse\cf0 .kr(\cf4 10\cf0 )).clip2 * \cf4 0.1\cf0 .dup \}.play;\
+\{ \cf2 CA2\cf0 .ar(\cf4 22000\cf0 , \cf2 MouseY\cf0 .kr(\cf4 16\cf0 , \cf4 200\cf0 ), r[\cf4 15\cf0 ], \cf2 MouseX\cf0 .kr(\cf4 0\cf0 , \cf4 255\cf0 ), \cf2 Dust\cf0 .kr(\cf4 100\cf0 )).clip2 * \cf4 0.1\cf0 .dup \}.play;}
