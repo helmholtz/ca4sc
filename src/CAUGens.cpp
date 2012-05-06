@@ -18,11 +18,12 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-// CAUGens implemented by Yota Morimoto (http://yota.tehis.net/syntax)
+// CAUGens implemented by Yota Morimoto 
+// http://yota.tehis.net/
 // v1.5 2012
-//CA1(x)
-//CA2(x)
-//x = cubic interpolation
+// CA1(x)
+// CA2(x)
+// x = cubic interpolation
 
 #include "SC_PlugIn.h"
 
@@ -55,8 +56,7 @@ extern "C" {
 }
 
 // calc 3rd order interpolation coefs from four points
-static inline void ipol3Coef(float xm3, float xm2, float xm1, float x, float &c0, float &c1, float &c2, float &c3)
-{
+static inline void ipol3Coef(float xm3, float xm2, float xm1, float x, float &c0, float &c1, float &c2, float &c3){
 	c0 = xm2;
 	c1 = 0.5f * (xm1 - xm3);
 	c2 = xm3 - (2.5f * xm2) + xm1 + xm1 - 0.5f * x;
@@ -64,8 +64,7 @@ static inline void ipol3Coef(float xm3, float xm2, float xm1, float x, float &c0
 }
 
 // do 3rd order interpolation using coefs
-static inline float ipol3(float frac, float c0, float c1, float c2, float c3)
-{
+static inline float ipol3(float frac, float c0, float c1, float c2, float c3){
 	return ((c3 * frac + c2) * frac + c1) * frac + c0;
 }
 
