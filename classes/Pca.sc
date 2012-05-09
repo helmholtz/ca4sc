@@ -1,5 +1,5 @@
 
-Pca {
+Pca : ListPattern {
 //	
 //	var <>rule, <>ruleAsBinary;//base
 //	var <>win;//gui
@@ -8,7 +8,6 @@ Pca {
 //	*new {| list, rule, repeats=inf |
 //		^super.newCopyArgs(list, rule, repeats);
 //	}
-//	storeArgs {^[list, rule, repeats] }
 //	//for subclass
 //	makerule {}
 //	//for subclass
@@ -24,7 +23,7 @@ Pca {
 //	}
 //}
 //
-//Pca1 : ListPattern {
+//Pca1 : Pca {
 //
 //	makerule {|char|
 //		this.ruleAsBinary = Array.fill(8, {|i| 16r01 & (char >> i) });
@@ -37,6 +36,29 @@ Pca {
 //		^list;
 //	}
 //
+//}
+//
+//Pca2 : Pca {
+//
+//	makerule {|hex|
+//		hex.do {|item| rule = rule ++ ("16r" ++ item).interpret.asBinaryDigits(4) };
+//		rule = rule.reverse;
+//	}
+//
+//	evolve {
+//		var tmp = cell.copyRange(0, smpwd - 1);
+//		smpwd.do {|i|
+//			cell[i] = rule[
+//				(cell.wrapAt(i-2) * 16) +
+//				(cell.wrapAt(i-1) *  8) + 
+//				(cell.at(i)       *  4) + 
+//				(cell.wrapAt(i+1) *  2) +
+//				(cell.wrapAt(i+2) *  1)
+//			];
+//		};
+//		^cell;
+//	}
+//	
 //}
 /*
 	r1 {
@@ -181,30 +203,6 @@ Pca {
 //		img.write("~/Desktop/" ++ name);
 //		img.free;
 //	}
-
-//
-//CA2L : CABase {
-//
-//	makerule {|hex|
-//		hex.do {|item| rule = rule ++ ("16r" ++ item).interpret.asBinaryDigits(4) };
-//		rule = rule.reverse;
-//	}
-//
-//	evolve {
-//		var tmp = cell.copyRange(0, smpwd - 1);
-//		smpwd.do {|i|
-//			cell[i] = rule[
-//				(cell.wrapAt(i-2) * 16) +
-//				(cell.wrapAt(i-1) *  8) + 
-//				(cell.at(i)       *  4) + 
-//				(cell.wrapAt(i+1) *  2) +
-//				(cell.wrapAt(i+2) *  1)
-//			];
-//		};
-//		^cell;
-//	}
-//	
-//}
 //
 //+ Integer {
 //	asCA {|seed=1| ^CA1L(160, this, seed).plot2d(2, 320) } // 160 * 320 resolution
