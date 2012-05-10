@@ -1,0 +1,8 @@
+
+CLASS:: Pca
+summary:: pattern cellular automata
+categories:: ca4sc, Streams-Patterns-Events>Patterns
+related:: Classes/CAUGen
+
+description::
+an abstract class for the subclasses.

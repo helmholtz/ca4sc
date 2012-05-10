@@ -1,0 +1,53 @@
+
+CLASS:: CA1
+summary:: ugen cellular automaton
+categories:: ca4sc, UGens>ca4sc
+
+description::
+implements 1D binary single neighbouring rule cellular automanton.
+interprets the binary lattice as floating-point sample values.
+no-interpolation.
+
+CLASSMETHODS::
+
+METHOD:: ar
+
+argument:: smprt
+iteration frequency
+
+argument:: smpwd
+lattice size [max 256]
+
+argument:: rule
+ca rule [0, 255]
+
+argument:: seed
+seeding (random if 0, otherwise translate an integer [0, 255] as binary and seeds into the lattice)
+
+argument:: trig
+retrigger (when triggered performs the above seeding)
+
+returns:: values in range  [-1.0, 1.0]
+
+
+EXAMPLES::
+
+code::
+s.boot;
+
+//this is then translated as waveform
+{ CA1.ar(10000, 50, 105, mul: 0.1) }.play;
+
+//change the lattice size, move mouse up/down
+{ CA1.ar(10000, MouseY.kr(16, 100), 105, mul: 0.1) }.play;
+
+// rule 110... short sound
+{ CA1.ar(2000, 160, 110, 1, mul: 0.5) }.play;
+
+// restimulate, move mouse up/down
+{ CA1.ar(2000, MouseY.kr(16, 100), 110, 1, Impulse.kr(10), mul: 0.5) }.play;
+
+// seeding, move mouse up/down and left/right
+{ CA1.ar(2000, MouseY.kr(16, 200), 110, MouseX.kr(0, 255).round(1), Impulse.kr(10), 0.5) }.play;
+
+::

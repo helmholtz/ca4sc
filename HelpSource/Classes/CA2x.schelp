@@ -1,0 +1,44 @@
+
+CLASS:: CA2x
+summary:: ugen cellular automaton
+categories:: ca4sc, UGens>ca4sc
+
+description::
+implements 1D binary 2 neighbouring rule cellular automanton.
+interprets the binary lattice as floating-point sample values.
+no-interpolation.
+
+CLASSMETHODS::
+
+METHOD:: ar
+
+argument:: smprt
+iteration frequency
+
+argument:: smpwd
+lattice size [max 256]
+
+argument:: rule
+ca hex string rule ["00000000", "FFFFFFFF"]
+
+argument:: seed
+seeding (random if 0, otherwise translate an integer [0, 255] as binary and seeds into the lattice)
+
+argument:: trig
+retrigger (when triggered performs the above seeding)
+
+returns:: values in range  [-1.0, 1.0]
+
+
+EXAMPLES::
+
+code::
+s.boot;
+
+s.boot;
+r = Pca.r2;//29 preset rules
+
+{ CA2x.ar(22000, MouseY.kr(16, 200), r[8], MouseX.kr(0, 255), Impulse.kr(10)).clip2 * 0.1.dup }.play;
+{ CA2x.ar(22000, MouseY.kr(16, 200), r[15], MouseX.kr(0, 255), Dust.kr(100)).clip2 * 0.1.dup }.play;
+
+::

@@ -1,0 +1,7 @@
+
+CLASS:: CAUGen
+summary:: ugen cellular automata
+categories:: ca4sc, UGens>ca4sc
+
+description::
+an abstract class for the subclasses.

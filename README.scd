@@ -1,11 +1,10 @@
-//cellular automata
+//ca4sc
+//cellular automata for supercollider
 //ugens and classes
 
 //maintained in github 
 https://github.com/yotamorimoto/ca4sc
 
-//.zip package
-http://yotamorimoto.github.com/ca4sc/
 
 [CA1]	1d binary ca. 1 neighbour
 [CA2]	1d binary ca. 2 neighbour
@@ -16,8 +15,8 @@ http://yotamorimoto.github.com/ca4sc/
 [Pca1]
 [Pca2]
 
-//2d
-?
+//TODO
+ugen change rule at kr?
 
 //references
 "hacking cellular automata: an approach to sound synthesis"
