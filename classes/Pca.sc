@@ -134,8 +134,8 @@ Pca2 : Pca {
 			};
 
 		};
-		CmdPeriod.doOnce { win.close };
 		win.front;
+		CmdPeriod.doOnce { win.close };
 	}
 	saveImage {| name='test.png' |
 		var img = SCImage.fromWindow(win, win.view.bounds);
