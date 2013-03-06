@@ -35,7 +35,7 @@ EXAMPLES::
 code::
 s.boot;
 
-//this is then translated as waveform
+//static
 { CA1.ar(10000, 50, 105, mul: 0.1) }.play;
 
 //change the lattice size, move mouse up/down

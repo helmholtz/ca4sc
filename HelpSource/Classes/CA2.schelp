@@ -35,7 +35,6 @@ EXAMPLES::
 code::
 s.boot;
 
-s.boot;
 r = Pca.r2;//29 preset rules
 
 { CA2.ar(22000, MouseY.kr(16, 200), r[8], MouseX.kr(0, 255), Impulse.kr(10)).clip2 * 0.1.dup }.play;

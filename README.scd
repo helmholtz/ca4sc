@@ -1,8 +1,7 @@
-//ca4sc
-//cellular automata for supercollider
+//ca4sc: cellular automata for supercollider
 //ugens and classes
 
-//maintained in github 
+//maintained in github
 https://github.com/yotamorimoto/ca4sc
 
 
@@ -23,4 +22,4 @@ ugen change rule at kr?
 
 //contact
 yota morimoto
-yotamorimoto@gmail.com
+yotamorimoto [at] gmail.com

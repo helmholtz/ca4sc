@@ -18,9 +18,8 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-// CAUGens implemented by Yota Morimoto 
-// http://yota.tehis.net/
-// v1.5 2012
+// NLUGens by yota morimoto (http://yota.tehis.net/)
+// v1.7 2013
 // CA1(x)
 // CA2(x)
 // x = cubic interpolation
@@ -32,9 +31,9 @@
 static InterfaceTable *ft;
 
 struct CA0 : public Unit {
-	char rule[8];
-	char rule2[32];
-	char cell[MAXWIDTH];
+	unsigned char rule[8];
+	unsigned char rule2[32];
+	unsigned char cell[MAXWIDTH];
 	float counter;
 	float xn, xm1, xm2, xm3, frac, c0, c1, c2, c3;
 };
@@ -44,7 +43,6 @@ struct CA1x : public CA0 {};
 struct CA2x : public CA0 {};
 
 extern "C" {
-	void load(InterfaceTable *inTable);
 	void CA1_next(CA1 *unit, int inNumSamples);
 	void CA1_Ctor(CA1 *unit);
 	void CA2_next(CA2 *unit, int inNumSamples);
@@ -73,11 +71,13 @@ float CA1_evolve(CA1 *unit, unsigned char smpwd)
 {
 	float result, sign, div;
 	
-	bool tmp[MAXWIDTH];
+	unsigned char tmp[MAXWIDTH];
 	memcpy(tmp, unit->cell, sizeof(unit->cell));
 	
 	result = 0.f;
 	sign = 1.f - 2.f * tmp[0];
+	div = 1;
+
 	for (int i=0; i<smpwd; i++) {
 		unit->cell[i] = unit->rule[
 			tmp[sc_wrap(i-1, 0, MAXWIDTH-1)] * 4 + 
@@ -102,7 +102,7 @@ void CA1_next(CA1 *unit, int inNumSamples)
 	// rexcitation
 	if (IN0(4)) {
 		if (IN0(3)) {
-			for(int i=0; i<smpwd; i++)
+			for (int i=0; i<smpwd; i++)
 				unit->cell[i] = 0x01 & ((unsigned char)IN0(3) >> i%8);
 		} else {
 			for (int i=0; i<smpwd; i++)
@@ -111,12 +111,12 @@ void CA1_next(CA1 *unit, int inNumSamples)
 	}
 	
 	float spc;
-	if(smprt < SAMPLERATE)
+	if (smprt < SAMPLERATE)
 		spc = SAMPLERATE / sc_max(smprt, 0.001f);
 	else spc = 1.f;
-
+	
 	LOOP(inNumSamples,
-		if(counter >= spc){
+		if (counter >= spc){
 			counter -= spc;
 			xn = CA1_evolve(unit, smpwd);
 		}
@@ -129,16 +129,17 @@ void CA1_next(CA1 *unit, int inNumSamples)
 
 void CA1_Ctor(CA1 *unit)
 {
-	for(int i=0; i<8; i++)
+	unit->xn = 0.f;
+	for (int i=0; i<8; i++)
 		unit->rule[i] = 0x01 & ((unsigned char)IN0(2) >> i);
 
-	if (IN0(3))
-		for(int i=0; i<MAXWIDTH; i++)
+	if (IN0(3)) {
+		for (int i=0; i<MAXWIDTH; i++)
 			unit->cell[i] = 0x01 & ((unsigned char)IN0(3) >> i%8);
-	else
-		for(int i=0; i<MAXWIDTH; i++)
+	} else {
+		for (int i=0; i<MAXWIDTH; i++)
 			unit->cell[i] = rand()%2;
-	
+	}
 	SETCALC(CA1_next);
 	unit->counter = 0.f;	
 }
@@ -172,7 +173,7 @@ void CA1x_next(CA1x *unit, int inNumSamples)
 	// rexcitation
 	if (IN0(4)) {
 		if (IN0(3)) {
-			for(int i=0; i<smpwd; i++)
+			for (int i=0; i<smpwd; i++)
 				unit->cell[i] = 0x01 & ((unsigned char)IN0(3) >> i%8);
 		} else {
 			for (int i=0; i<smpwd; i++)
@@ -181,8 +182,7 @@ void CA1x_next(CA1x *unit, int inNumSamples)
 	}
 	
 	LOOP(inNumSamples,
-		float result;
-		if(counter >= spc){
+		if (counter >= spc){
 			counter -= spc;
 			frac = 0.f;
 			xm3 = xm2;
@@ -212,8 +212,10 @@ void CA1x_Ctor(CA1x *unit)
 	//RGET;
 	unit->xn = unit->xm1 = unit->xm2 = unit->xm3 = 0.f;
 	unit->c0 = unit->c1 = unit->c2 = unit->c3 = 0.f;
-	for(int i=0; i<8; i++)
+	
+	for (int i=0; i<8; i++)
 		unit->rule[i] = 0x01 & ((unsigned char)IN0(2) >> i);
+
 	if (IN0(3)) {
 		for (int i=0; i<MAXWIDTH; i++)
 			unit->cell[i] = 0x01 & ((unsigned char)IN0(3) >> i%8);
@@ -231,7 +233,7 @@ float CA2_evolve(CA2 *unit, unsigned char smpwd)
 {
 	float result, sign, div;
 	
-	bool tmp[MAXWIDTH];
+	unsigned char tmp[MAXWIDTH];
 	memcpy(tmp, unit->cell, sizeof(unit->cell));
 
 	result = 0.f;
@@ -291,6 +293,7 @@ void CA2_next(CA2 *unit, int inNumSamples)
 
 void CA2_Ctor(CA2 *unit)
 {
+	unit->xn = 0.f;
 	for(int i=0; i<31; i++)
 		unit->rule2[i] = (bool)IN0(i+4); // create rule
 
@@ -369,7 +372,7 @@ void CA2x_Ctor(CA2x *unit)
 	unit->xn = unit->xm1 = unit->xm2 = unit->xm3 = 0.f;
 	unit->c0 = unit->c1 = unit->c2 = unit->c3 = 0.f;
 	for(int i=0; i<31; i++)
-		unit->rule2[i] = (bool)IN0(i+4); // create rule
+		unit->rule2[i] = (unsigned char)IN0(i+4); // create rule
 
 	if(IN0(2))
 		for(int i=0; i<MAXWIDTH; i++)
@@ -382,7 +385,7 @@ void CA2x_Ctor(CA2x *unit)
 	SETCALC(CA2x_next);
 }
 
-void load(InterfaceTable *inTable)
+PluginLoad(CA)
 {
 	ft = inTable;
 	DefineSimpleUnit(CA1);
