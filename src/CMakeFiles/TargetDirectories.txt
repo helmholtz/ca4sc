@@ -1,0 +1,1 @@
+/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CMakeFiles/CAUGens.dir
