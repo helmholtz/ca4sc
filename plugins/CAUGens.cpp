@@ -1,7 +1,5 @@
 /*
- SuperCollider real time audio synthesis system
- Copyright (c) 2002 James McCartney. All rights reserved.
- http://www.audiosynth.com
+ CAUGens by yota morimoto (http://yota.tehis.net/)
  
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,12 +15,6 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
-
-// NLUGens by yota morimoto (http://yota.tehis.net/)
-// v1.7 2013
-// CA1(x)
-// CA2(x)
-// x = cubic interpolation
 
 #include "SC_PlugIn.h"
 
@@ -53,15 +45,12 @@ extern "C" {
 	void CA2x_Ctor(CA2x *unit);
 }
 
-// calc 3rd order interpolation coefs from four points
 static inline void ipol3Coef(float xm3, float xm2, float xm1, float x, float &c0, float &c1, float &c2, float &c3){
 	c0 = xm2;
 	c1 = 0.5f * (xm1 - xm3);
 	c2 = xm3 - (2.5f * xm2) + xm1 + xm1 - 0.5f * x;
 	c3 = 0.5f * (x - xm3) + 1.5f * (xm2 - xm1);
 }
-
-// do 3rd order interpolation using coefs
 static inline float ipol3(float frac, float c0, float c1, float c2, float c3){
 	return ((c3 * frac + c2) * frac + c1) * frac + c0;
 }
