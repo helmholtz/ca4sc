@@ -1,21 +1,17 @@
 //ca4sc: cellular automata for supercollider
 //ugens and classes
 
-//maintained in github
-https://github.com/yotamorimoto/ca4sc
-
-
-[CA1]	1d binary ca. 1 neighbour
-[CA2]	1d binary ca. 2 neighbour
-[CA1x]	cubic interpolation
-[CA2x]	cubic interpolation
+[CA1]
+[CA2]
+[CA1x]
+[CA2x]
 
 //pattern
 [Pca1]
 [Pca2]
 
 //TODO
-ugen change rule at kr?
+explore ca2
 
 //references
 "hacking cellular automata: an approach to sound synthesis"
