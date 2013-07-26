@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /Applications/CMake2.8-10.app/Contents/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /Applications/CMake2.8-10.app/Contents/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /Applications/CMake2.8-10.app/Contents/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src"
+CMAKE_SOURCE_DIR = "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src"
+CMAKE_BINARY_DIR = "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CAUGens.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/CAUGens.dir/flags.make
 
 CMakeFiles/CAUGens.dir/CAUGens.cpp.o: CMakeFiles/CAUGens.dir/flags.make
 CMakeFiles/CAUGens.dir/CAUGens.cpp.o: CAUGens.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CMakeFiles" $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/CMakeFiles" $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CAUGens.dir/CAUGens.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CAUGens.dir/CAUGens.cpp.o -c "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CAUGens.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CAUGens.dir/CAUGens.cpp.o -c "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/CAUGens.cpp"
 
 CMakeFiles/CAUGens.dir/CAUGens.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CAUGens.dir/CAUGens.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CAUGens.cpp" > CMakeFiles/CAUGens.dir/CAUGens.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/CAUGens.cpp" > CMakeFiles/CAUGens.dir/CAUGens.cpp.i
 
 CMakeFiles/CAUGens.dir/CAUGens.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CAUGens.dir/CAUGens.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CAUGens.cpp" -o CMakeFiles/CAUGens.dir/CAUGens.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/CAUGens.cpp" -o CMakeFiles/CAUGens.dir/CAUGens.cpp.s
 
 CMakeFiles/CAUGens.dir/CAUGens.cpp.o.requires:
 .PHONY : CMakeFiles/CAUGens.dir/CAUGens.cpp.o.requires
@@ -100,6 +100,6 @@ CMakeFiles/CAUGens.dir/clean:
 .PHONY : CMakeFiles/CAUGens.dir/clean
 
 CMakeFiles/CAUGens.dir/depend:
-	cd "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CMakeFiles/CAUGens.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins" "/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/CMakeFiles/CAUGens.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/CAUGens.dir/depend
 

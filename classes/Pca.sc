@@ -1,9 +1,9 @@
 
 Pca : ListPattern {
-	
+
 	var <>rule, <>ruleAsBinary;//base
 	var <>win;//gui
-	
+
 	*new {| list, rule, repeats=inf |
 		^super.new(list, repeats).rule_(rule);
 	}
@@ -11,7 +11,7 @@ Pca : ListPattern {
 	makerule {}
 	//for subclass
 	evolve {}
-	
+
 	embedInStream {|inval|
 		var items = list.copy;
 		var ruleStrm = rule.asStream, ruleVal;
@@ -22,7 +22,7 @@ Pca : ListPattern {
 			items = this.evolve(items);
 			inval = items.yield;
 		}
-		^inval;	
+		^inval;
 	}
 }
 
@@ -33,8 +33,8 @@ Pca1 : Pca {
 	}
 	evolve {|prev|
 		var next = Array.newClear(prev.size);
-		prev.size.do {|i| 
-			next[i] = ruleAsBinary[(prev.wrapAt(i-1)*4) + (prev[i]*2) + prev.wrapAt(i+1)] 
+		prev.size.do {|i|
+			next[i] = ruleAsBinary[(prev.wrapAt(i-1)*4) + (prev[i]*2) + prev.wrapAt(i+1)]
 		};
 		^next;
 	}
@@ -52,8 +52,8 @@ Pca2 : Pca {
 		prev.size.do {|i|
 			next[i] = ruleAsBinary[
 				(prev.wrapAt(i-2) * 16) +
-				(prev.wrapAt(i-1) *  8) + 
-				(prev.at(i)       *  4) + 
+				(prev.wrapAt(i-1) *  8) +
+				(prev.at(i)       *  4) +
 				(prev.wrapAt(i+1) *  2) +
 				(prev.wrapAt(i+2) *  1)
 			];
@@ -65,17 +65,17 @@ Pca2 : Pca {
 + Pca {
 	*r1 {
 		^"[Original, Mirrored, Complemental, Mirrored-Complemental]
-			triangle1 ->	[18, 146] // amphirical
+			triangle1 -> [18, 146] // amphirical
 			triangle2 -> [26, 82, 154, 210]
 			triangle3 -> [22, 151, 129, 161]
 			triangle4 -> [166, 167, 180, 181, 183]
 			triangle5 -> [90, 165]// amphirical
-			gestalt   ->	[105, 150] // survive smpwd
+			gestalt   -> [105, 150] // survive smpwd
 			universal -> [110, 124, 137, 193]
 			harmonic1 -> [60, 102, 195, 153]
 			harmonic2 -> [106, 120, 169, 225] // 120 and 225 survive
-			noise1    ->	[30, 86, 135, 149], // survive smpwd if init rand
-			noise2    ->	[122, 126, 146, 182, 192], // wider smpwd conditionally with rand init
+			noise1    -> [30, 86, 135, 149], // survive smpwd if init rand
+			noise2    -> [122, 126, 146, 182, 192], // wider smpwd conditionally with rand init
 			colored   -> [45, 75, 89, 101], // wider smpwd init rand
 			pulseflux1-> [54, 147], // amphirical, no mirror
 			pulseflux2-> [62, 118, 131, 145],
@@ -137,6 +137,7 @@ Pca2 : Pca {
 		win.front;
 		CmdPeriod.doOnce { win.close };
 	}
+
 	saveImage {| name='test.png' |
 		var img = SCImage.fromWindow(win, win.view.bounds);
 		img.write("~/Desktop/" ++ name);

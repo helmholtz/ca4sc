@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/yota/Deployment/supercollider/external_libraries/libsndfile/sndfile.h
-stdio.h
--
-sys/types.h
--
-
 /Users/yota/Deployment/supercollider/include/common/SC_Alloca.h
 alloca.h
 -
@@ -33,8 +27,6 @@ sys/types.h
 -
 netinet/in.h
 -
-SC_Win32Utils.h
-/Users/yota/Deployment/supercollider/include/common/SC_Win32Utils.h
 endian.h
 -
 netinet/in.h
@@ -125,8 +117,6 @@ SC_fftlib.h
 /Users/yota/Deployment/supercollider/include/plugin_interface/SC_fftlib.h
 SC_Export.h
 /Users/yota/Deployment/supercollider/include/plugin_interface/SC_Export.h
-sndfile.h
--
 
 /Users/yota/Deployment/supercollider/include/plugin_interface/SC_Node.h
 SC_Types.h
@@ -224,7 +214,7 @@ SC_Types.h
 string.h
 -
 
-/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/CAUGens.cpp
+/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/CAUGens.cpp
 SC_PlugIn.h
-/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/src/SC_PlugIn.h
+/Users/yota/Library/Application Support/SuperCollider/Extensions/ca4sc/plugins/SC_PlugIn.h
 
