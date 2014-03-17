@@ -64,27 +64,29 @@ Pca2 : Pca {
 
 + Pca {
 	*r1 {
-		^"[Original, Mirrored, Complemental, Mirrored-Complemental]
-			triangle1 -> [18, 146] // amphirical
-			triangle2 -> [26, 82, 154, 210]
-			triangle3 -> [22, 151, 129, 161]
-			triangle4 -> [166, 167, 180, 181, 183]
-			triangle5 -> [90, 165]// amphirical
-			gestalt   -> [105, 150] // survive smpwd
-			universal -> [110, 124, 137, 193]
-			harmonic1 -> [60, 102, 195, 153]
-			harmonic2 -> [106, 120, 169, 225] // 120 and 225 survive
-			noise1    -> [30, 86, 135, 149], // survive smpwd if init rand
-			noise2    -> [122, 126, 146, 182, 192], // wider smpwd conditionally with rand init
-			colored   -> [45, 75, 89, 101], // wider smpwd init rand
-			pulseflux1-> [54, 147], // amphirical, no mirror
-			pulseflux2-> [62, 118, 131, 145],
+		//some rules of ca1
+		//Original, Mirrored, Complemental, Mirrored-Complemental
+		^"
+		triangle1 -> [18, 146] // amphirical
+		triangle2 -> [26, 82, 154, 210]
+		triangle3 -> [22, 151, 129, 161]
+		triangle4 -> [166, 167, 180, 181, 183]
+		triangle5 -> [90, 165]// amphirical
+		gestalt   -> [105, 150] // survive smpwd
+		universal -> [110, 124, 137, 193]
+		harmonic1 -> [60, 102, 195, 153]
+		harmonic2 -> [106, 120, 169, 225] // 120 and 225 survive
+		noise1    -> [30, 86, 135, 149], // survive smpwd if init rand
+		noise2    -> [122, 126, 146, 182, 192], // wider smpwd conditionally with rand init
+		colored   -> [45, 75, 89, 101], // wider smpwd init rand
+		pulseflux1-> [54, 147], // amphirical, no mirror
+		pulseflux2-> [62, 118, 131, 145],
 		motion RL 2, 6, 10, 14, 34, 38, 42, 46, 74, 106
 		motion LR 16, 20, 24, 82, 120
-		straight 4, 12, 13, 36"
+		straight 4, 12, 13, 36";
 	}
 	*r2 {
-		//rules for ca2
+		//some rules of ca2
 		//reference, Mirek's MJCell
 		//http://psoup.math.wisc.edu/mcell/mjcell/mjcell.html
 		^[
