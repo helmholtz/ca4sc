@@ -121,14 +121,14 @@ Pca2 : Pca {
 		"8F0C1A48"
 		];
 	}
-	plot2d {| iter=500 |
+	plot {| n=500 |
 		var rct, cell, stream = this.asStream, strVal;
-		rct = Rect(0, 0, list.size, iter);
-		win = Window("rule " ++ rule ++ " size " ++ list.size ++ "x" ++ iter, rct, false);
+		rct = Rect(0, 0, list.size, n);
+		win = Window("rule " ++ rule ++ " size " ++ list.size ++ "x" ++ n, rct, false);
 		win.view.background = Color.black;
 		win.drawFunc = {
 			Pen.fillColor = Color.white;
-			iter.do {|i|
+			n.do {|i|
 				strVal = stream.next;
 				strVal.do {|item,j|
 					if (item == 1, { Pen.fillRect(Rect(j, i, 1, 1)) });
